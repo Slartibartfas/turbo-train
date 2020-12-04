@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>CCL-Website</title>
+        <meta charset="UTF-8">
+
+        <style>
+
+            /*https://developer.mozilla.org/en-US/docs/Web/CSS/Reference*/
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            header {
+                background-color: blue;
+                color: yellow;
+                padding: 30px;
+                /* margin: 50px; */
+                border: 28px solid lightblue;
+                text-align: center;
+            }
+
+            nav {
+                background-color: tomato;
+                color: midnightblue;
+                padding: 20px;
+                width: 30%;
+            }
+
+            nav li {
+                list-style-type: none;
+                padding: 8px;
+            }
+
+            nav li:hover {
+                background-color: red;
+            }
+
+            #mein-haupt-block {
+                background-color: olivedrab;
+                color: rgb(255, 255, 255, 1);
+                padding: 20px;
+                width: 70%;
+                background-image: radial-gradient(at 20% 60%, grey, darkgreen);
+            }
+
+            .column {
+                float: left;
+                height: 700px;
+            }
+
+            section:after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            footer {
+                background-color: #9999ff;
+                color: #f00;
+                padding: 20px;
+            }
+
+            h5, h6 {
+                font-family: monospace;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Überschrift 1</h1>
+        </header>
+
+        <section>
+
+            <nav class="column">
+                <ul>
+                    <li>Home</li>
+                    <li>Bio</li>
+                    <li>News</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
+
+            <div id="mein-haupt-block" class="column" onmousemove="myGradient(event)">
+                <h2>Überschrift 2</h2>
+                <h3>Überschrift 3</h3>
+                <h4>Überschrift 4</h4>
+                <h5>Überschrift 5</h5>
+                <h6>Überschrift 6</h6>
+
+                <p>
+                    Hallo
+                    <br/>
+                    Neue Zeile
+                </p>
+
+                <button onclick="genMarkov()">
+                    <label>Click me for Markov text-generation</label>
+                </button>
+
+                <p id="p-markov">
+                    Some text in a new line. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text.
+                </p>
+
+                <ul>
+                    <li>Liste</li>
+                    <li>Items</li>
+                    <li>ohne</li>
+                    <li>Bezifferung</li>
+                    <ol>
+                        <li>Liste</li>
+                        <li>mit</li>
+                        <li>Bezifferung</li>
+                    </ol>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            Footer
+        </footer>
+
+        <script>
+            var txt = "Der Herr der Ringe (englischer Originaltitel: The Lord of the Rings) ist ein Roman von John Ronald Reuel Tolkien. Er gehört zu den kommerziell erfolgreichsten Romanen des 20. Jahrhunderts, ist ein Klassiker der Fantasy-Literatur und gilt als grundlegendes Werk der High Fantasy. Im englischen Original in drei Bänden zu jeweils zwei Büchern plus Appendizes in den Jahren 1954/1955 veröffentlicht, erschien die erste deutsche Übersetzung 1969/1970. Weltweit wurde der Roman etwa 150 Millionen Mal verkauft. Der Roman steht vor dem Hintergrund einer von Tolkien sein Leben lang entwickelten Fantasiewelt (Tolkiens Welt). Er erzählt die Geschichte eines Rings, mit dessen Vernichtung die böse Macht in Gestalt des dunklen Herrschers Sauron untergeht. Die Hauptfiguren sind vier Hobbits, die unfreiwillig in ein heroisches Abenteuer hineingezogen werden. Neben diesen spielen als Vertreter des Guten Elben, Menschen des Westens und des Nordens, Zwerge und Zauberer wichtige Rollen. Ihre Gegenspieler sind die Geschöpfe und Untertanen Saurons, die Orks, Trolle und Menschen des Ostens und des Südens. Der Roman diente als Vorlage für zahlreiche Adaptionen, darunter eine mit 17 Oscars prämierte Filmtrilogie.";
+
+            var order = 3;
+            var ngrams = {};
+
+            for (var i = 0; i < txt.length; i++) {
+                var ngram = txt.substring(i, i + order);
+                if (!ngrams[ngram]) {
+                    ngrams[ngram] = [];
+                }
+                ngrams[ngram].push(txt.charAt(i + order));
+            }
+
+            function genMarkov() {
+                /*var currentGram
+                *
+                *
+                *
+                */
+            }
+
+            function myGradient(event) {
+                var element = document.getElementById("mein-haupt-block");
+
+                var x = event.clientX;
+                var y = event.clientY;
+
+                var rect = element.getBoundingClientRect();
+
+                x = (x - rect.x) / rect.width * 100;
+                y = (y - rect.y) / rect.height * 100;
+
+                element.style.background = "radial-gradient(at " + x + "% " + y + "%, black, white)";
+            }
+        </script>
+
+    </body>
+    
+</html>
