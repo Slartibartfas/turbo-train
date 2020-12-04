@@ -1,0 +1,63 @@
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/Reference*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: blue;
+    color: yellow;
+    padding: 30px;
+    /* margin: 50px; */
+    border: 28px solid lightblue;
+    text-align: center;
+}
+
+nav {
+    background-color: tomato;
+    color: midnightblue;
+    padding: 20px;
+    width: 30%;
+}
+
+nav li {
+    list-style-type: none;
+    padding: 8px;
+}
+
+nav li:hover {
+    background-color: red;
+}
+
+#mein-haupt-block {
+    background-color: olivedrab;
+    color: rgb(255, 255, 255, 1);
+    padding: 20px;
+    width: 70%;
+    background-image: radial-gradient(at 20% 60%, grey, darkgreen);
+}
+
+.column {
+    float: left;
+    height: 700px;
+}
+
+section:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+footer {
+    background-color: #9999ff;
+    color: #f00;
+    padding: 20px;
+}
+
+h5, h6 {
+    font-family: monospace;
+}
