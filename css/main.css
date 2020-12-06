@@ -29,6 +29,10 @@ nav li {
     padding: 8px;
 }
 
+nav ul {
+    padding: 0;
+}
+
 nav li:hover {
     background-color: red;
 }
